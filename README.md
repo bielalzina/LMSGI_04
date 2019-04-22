@@ -14,3 +14,4 @@ Malgrat el video no té so, no es massa complicat veure i entendre el funcioname
 2. Si introduim un patro reconegut "Me pots informar sobre \*", on \* es allò sobre el que volem informació, per exemple: "Me pots informar sobre Madrid". En aquest cas:
   * El bot ens proporciona un link a la wikipedia de Madrid, en aquest cas.
   * S'ha declarat la variable lloc amb el valor Madrid.
+3. Si repetim el mateix procés però amb els altres patrons ("Me mostres un mapa de \*" o "Quin temps fa en \*"), el bot ens proporcionara un link a un mapa o a la previsió del temps, i es el valor de la variable lloc canviara al segons la darrera petició realitzada.: 
