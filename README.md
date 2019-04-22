@@ -16,10 +16,10 @@ Malgrat el video no té so, no es massa complicat veure i entendre el funcioname
    * S'ha declarat la variable lloc amb el valor Madrid.
 3. Si repetim el mateix procés però amb els altres patrons ("Me mostres un mapa de \*" o "Quin temps fa en \*"), el bot ens proporcionara un link a un mapa o a la previsió del temps, i es el valor de la variable lloc canviara al segons la darrera petició realitzada.
 4. Un cop declarada la variable lloc, el bot accepta altres tipus de converses:
-   * Parla sobre el lloc
-   * Mostra el mapa del lloc
-   * Tenen un bon dia alla
+   * "Parla sobre el lloc"
+   * "Mostra el mapa del lloc"
+   * "Tenen un bon dia alla"
 
 En aquests casos i sempre que la variable lloc estigui declarada, el bot actuara com si haguessim introduit el patro inicial.
 Es a dir, si la variable lloc=bilbao (pq.abans li hem demanat "Quin temps fa en Bilbao") i ara li demaman "Mostra el mapa del lloc", el bot actuara, com si la conversa introduida fos "Me mostres un mapa de Bilbao"
- 
+5. En canvi, si la variable lloc no està declarada i feim servir les converses dels punt 4 ("Parla sobre el lloc", "Mostra el mapa del lloc", "Tenen un bon dia alla"), el bot no pot actuar aplicant la primera conversa de cada model, sino que ens demana d'on volem informació, mapa o previsió climatica. Un cop li proporcionam el valor, la variable es declara i el bot pot respondre normalment.
