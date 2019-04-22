@@ -20,6 +20,6 @@ Malgrat el video no té so, no es massa complicat veure i entendre el funcioname
  * Mostra el mapa del lloc
  * Tenen un bon dia alla
 
- En aquests casos i sempre que la variable lloc estigui declarada, el bot actuara com si haguessim introduit el patro inicial.
+: En aquests casos i sempre que la variable lloc estigui declarada, el bot actuara com si haguessim introduit el patro inicial.
  Es a dir, si la variable lloc=bilbao (pq.abans li hem demanat "Quin temps fa en Bilbao") i ara li demaman "Mostra el mapa del lloc", el bot actuara, com si la conversa introduida fos "Me mostres un mapa de Bilbao"
  
