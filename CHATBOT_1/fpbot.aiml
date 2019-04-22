@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+### patró desconegut
+
+	<category>
+	    <pattern>*</pattern>
+	    <template>No puc processar la teva resposta, torna a provar-ho
+	    <break/>
+	    Si necessites ajuda.
+            <button>
+                <text>Clica aqui</text>
+                <url>https://docs.google.com/document/d/1xrPvIUzNxcewemibH5ptN-sDKqfIsT9MiGSD4IxQ9dU/edit?usp=sharing</url>
+            </button>
+	    </template>
+    </category>
+
+### salutació inicial
+
+<category>
+    <pattern><set>salutacions</set></pattern>
+    <template>
+        Hola, soc FPBOT i estic programat per donar informació sobre els estudis de 
+        <h3>Formació Professional</h3>
+        <break/>
+        Com te dius?
+    </template>
+</category>
+
+### nom de l'usuari
+
+<category>
+    <pattern>El meu nom es *</pattern>
+    <template>
+        <think><set name="nom"><star/></set></think>
+        Encantat de coneixer´te, <formal><get name="nom"/></formal>
+    </template>
+</category>
+
+<category>
+    <pattern>Em dic *</pattern>
+    <template>
+        <srai>El meu nom es <star/></srai>
+    </template>
+</category>
+
+<category>
+    <pattern>Em diuen *</pattern>
+    <template>
+        <srai>El meu nom es <star/></srai>
+    </template>
+</category>
+
+### informació sobre aspectes generals
+
+<category>
+    <pattern>Voldria informació sobre *</pattern>
+    <template>
+        <condition name="nom">
+            <li value="unknown">Encara que no m'hagis dit el teu nom</li>
+            <li><formal><get name="nom"/></formal></li>
+        </condition>
+        , pot-ser en aquest enllaç hi puguis trobar informació: 
+            <button>
+                <text><uppercase><star/></uppercase></text>
+                <url><map name="aspectesgenerals"><star/></map></url>
+            </button>
+    </template>
+</category>
+
+</aiml>
