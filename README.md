@@ -13,4 +13,4 @@ Malgrat el video no té so, no es massa complicat veure i entendre el funcioname
 1. Si iniciam la conversa amb un patró no reconegut pet bot, ens contesta que no pot processar la informació.
 2. Si introduim un patro reconegut "Me pots informar sobre \*", on \* es allò sobre el que volem informació, per exemple: "Me pots informar sobre Madrid". En aquest cas:
   * El bot ens proporciona un link a la wikipedia de Madrid, en aquest cas.
-  * 
+  * S'ha declarat la variable lloc amb el valor Madrid.
