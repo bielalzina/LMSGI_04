@@ -1,100 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
-##############################
+  <category>
+    <pattern>*</pattern>
+    <template>Ho sento, necessito més informació per poder respondre.</template>
+  </category>
 
-    <category>
-        <pattern>Me pots informar sobre *</pattern>
-        <template>
-            <think><set name="aixo"><star/></set></think>
-            Aquí tens informació sobre <formal><star/></formal>.
-            <button>
-                <text>Clica aqui</text>
-                <url>https://ca.wikipedia.org/wiki/<star/></url>
-            </button>
-        </template>
-    </category>
 
-    <category>
-        <pattern>Me pots informar sobre aixo</pattern>
-        <template>
-            <condition name="aixo">
-                <li value="*"><srai>Me pots informar sobre <get name="aixo"/></srai></li>
-                <li>De que vols informació?</li>
-            </condition>
-        </template>
-    </category>
+########## VOLDRIA INFORMACIO #################
 
-    <category>
-        <pattern>*</pattern>
-        <that>De que vols informació</that>
-        <template>
-            <srai>Me pots informar sobre <star/></srai>
-        </template>
-    </category>
+<category>
+    <pattern>Me pots informar sobre *</pattern>
+    <template>
+        <think><set name="lloc"><star/></set></think>
+        Tal vegada en aquesta enllaç puguis trobar informació sobre <formal><star/></formal>.
+        <button>
+            <text>Clica aqui</text>
+            <url>https://ca.wikipedia.org/wiki/<star/></url>
+        </button>
+    </template>
+</category>
 
-###############################
+<category>
+    <pattern>Parla sobre el lloc</pattern>
+    <template>
+        <condition name="lloc">
+            <li value="*"><srai>Me pots informar sobre <get name="lloc"/></srai></li>
+            <li>Sobre que vols informació?</li>
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+    <that>Sobre que vols informació</that>
+    <template>
+        <srai>Me pots informar sobre <star/></srai>
+    </template>
+</category>
+
+############ MAPA ###############
   
-    <category>
-        <pattern>Me mostres un mapa de *</pattern>
-        <template>
-            <think><set name="alla"><star/></set></think>
-            Aquí tens el mapa de <formal><star/></formal>.
-            <button>
-                <text>Clica aqui</text>
-                <url>https://www.google.com/maps?q=<star/></url>
-            </button>
-        </template>
-    </category>    
+<category>
+    <pattern>Me pots mostrar un mapa de *</pattern>
+    <template>
+        <think><set name="lloc"><star/></set></think>
+        Aqui tens el mapa de <formal><star/></formal>.
+        <button>
+            <text>Clica aqui</text>
+            <url>https://www.google.com/maps?q=<star/></url>
+        </button>
+    </template>
+</category>
 
-    <category>
-        <pattern>Me mostres un mapa de alla</pattern>
-        <template>
-            <condition name="alla">
-                <li value="*"><srai>Me mostres un mapa de <get name="alla"/></srai></li>
-                <li>De quin lloc vols el mapa?</li>
-            </condition>
-        </template>
-    </category>
+<category>
+    <pattern>Mostra el mapa del lloc</pattern>
+    <template>
+        <condition name="lloc">
+            <li value="*"><srai>Me pots mostrar un mapa de <get name="lloc"/></srai></li>
+            <li>De quin lloc vols un mapa?</li>
+        </condition>
+    </template>
+</category>
 
-    <category>
-        <pattern>*</pattern>
-        <that>De quin lloc vols el mapa</that>
-        <template>
-            <srai>Me mostres un mapa de <star/></srai>
-        </template>
-    </category>
+<category>
+    <pattern>*</pattern>
+    <that>De quin lloc vols un mapa</that>
+    <template>
+        <srai>Me pots mostrar un mapa de <star/></srai>
+    </template>
+</category>
+
+############ CLLIMA ###############
+
+<category>
+    <pattern>Quin temps fa en *</pattern>
+    <template>
+        <think><set name="lloc"><star/></set></think>
+        Esper que faci un bon dia en <formal><star/></formal>.
+        <button>
+            <text>Clica aqui</text>
+            <url>https://www.weather-forecast.com/locations/<star/>/forecasts/latest</url>
+        </button>
+    </template>
+</category>
+
+<category>
+    <pattern>Tenen un bon dia alla</pattern>
+    <template>
+        <condition name="lloc">
+            <li value="*"><srai>Quin temps fa en <get name="lloc"/></srai></li>
+            <li>De quin lloc vols saber el temps que hi fa?</li>
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+    <that>De quin lloc vols saber el temps que hi fa</that>
+    <template>
+        <srai>Quin temps fa en <star/></srai>
+    </template>
+</category>
 
 ###########################
-
-    <category>
-        <pattern>Quin temps fa en *</pattern>
-        <template>
-            <think><set name="aqui"><star/></set></think>
-            Esper que faci un bon dia <formal><star/></formal>.
-            <button>
-                <text>Clica aqui</text>
-                <url>https://www.weather-forecast.com/locations/<star/>/forecasts/latest</url>
-            </button>            
-        </template>
-    </category>
-
-    <category>
-        <pattern>Quin temps fa en aqui</pattern>
-        <template>
-            <condition name="aqui">
-                <li value="*"><srai>Quin temps fa en <get name="aqui"/></srai></li>
-                <li>De quin lloc vols saber el temps que fa?</li>
-            </condition>
-        </template>
-    </category>
-
-    <category>
-        <pattern>*</pattern>
-        <that>De quin lloc vols saber el temps que fa</that>
-        <template>
-            <srai>Quin temps fa en <star/></srai>
-        </template>
-    </category>
     
 </aiml>
