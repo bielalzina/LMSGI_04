@@ -27,4 +27,10 @@ Es a dir, si la variable lloc=bilbao (pq.abans li hem demanat "Quin temps fa en 
 
 ## CHABOT 2
 
-He fet un chatbot (FPBOT) que ens ajuda a trobar informació sobre els ensenyaments de Formació Professional
+He fet un chatbot (FPBOT) que ens ajuda a trobar informació sobre els ensenyaments de Formació Professional. He gravat dos videos (aquest cop amb so) on intent explicar les caracteristiques i funcionalitats del CHATBOT.
+
+[FPBOT 1/2](https://drive.google.com/file/d/1-rg7IrMz9vsIoRzK2O8kLkbQCTuK6wkN/view?usp=sharing)
+[FPBOT 2/2](https://drive.google.com/file/d/1-nuOuTnCJwTsJzO64DtvN6IfsAa6O-gJ/view?usp=sharing)
+
+Com en el 1r video vaig oblidar esmentar una pecularietat, en el 2n s'indica.
+
