@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+### patró desconegut
+
+	<category>
+	    <pattern>*</pattern>
+	    <template>
+        <condition name="salutacio">
+            <li value="unknown">
+                Hola, que te sembla si abans de processar la teva sol·licitud, 
+                començam amb una salutacio. 
+    	        <break/>
+    	        <random>
+    	            <li>Prova amb un senzill "<b>Hola</b>"</li>
+    	            <li>Escriu "<b>Bones</b>", a veure que passa</li>
+    	            <li>Demana'm "<b>Que tal</b>", a veure que passa</li>
+    	            <li>"<b>Bones tardes</b>" o "<b>Bon dia</b>" o "<b>Bones</b>" prova-ho</li>
+                </random>
+            </li>
+            <li>
+                <condition name="nom">
+                    <li value="unknown">
+                        M'agradaria saber amb qui me comunic, ens tornam a presentar
+                        <break/>
+                        <srai>Hola</srai>
+                    </li>
+                </condition>
+            </li>
+        </condition>	    
+	    </template>
+    </category>
+
+### salutació inicial
+
+<category>
+    <pattern><set>salutacions</set></pattern>
+    <template>
+        <think><set name="salutacio">ok</set></think>
+        😎 Hola, soc FPBOT i estic programat per donar informació sobre els estudis de 
+        <h4>Formació Professional</h4>
+        <break/>
+        Com te dius?
+        <break/>
+        M'ho pots dir així:
+        <ul>
+            <li>El meu nom es ...</li>
+            <li>Em dic ...</li>
+            <li>Em diuen ...</li>
+        </ul>
+        
+    </template>
+</category>
+
+### nom de l'usuari
+
+<category>
+    <pattern>El meu nom es *</pattern>
+    <template>
+        <think><set name="nom"><star/></set></think>
+        Benvingut!!, <b><formal><get name="nom"/></formal></b>.
+        <break/>
+        Intentare ajudar-te en tot el que vulguis saber.
+        <break/>
+        Si vols eliminar les teves dades de sessió, introdueix <b>"adeu"</b>.
+        <break/>
+        Sobre quin tema vols informació?
+        <think><set name="topic">fpbot</set></think>
+    </template>
+</category>
+
+<category>
+    <pattern>Em dic *</pattern>
+    <template>
+        <srai>El meu nom es <star/></srai>
+    </template>
+</category>
+
+<category>
+    <pattern>Em diuen *</pattern>
+    <template>
+        <srai>El meu nom es <star/></srai>
+    </template>
+</category>
+
+
+<topic name="fpbot">
+
+    ### informació sobre aspectes generals
+    
+    <category>
+        <pattern><set>aspectesgenerals</set></pattern>
+        <template>
+            <b><formal><get name="nom"/></formal></b>
+            , pot-ser en aquest enllaç hi puguis trobar informació: 
+                <button>
+                    <text><uppercase><star/></uppercase></text>
+                    <url><map name="aspectesgenerals"><star/></map></url>
+                </button>
+        </template>
+    </category>
+    
+    ### FP BALEARS
+    
+    <category>
+        <pattern># Balears #</pattern>
+        <template>
+            <image>http://www.caib.es/govern/rest/arxiu/2767870</image>
+            <b><formal><get name="nom"/></formal></b>. Clica en el botó i accediras a la web de Formació Professional a les Illes Balears.
+            <break/>Esper que hi trobis el que cerques.
+            <button>
+                <text>FP BALEARS</text>
+                <url>http://www.caib.es/sites/fp/ca/portada-77258/?campa=yes</url>
+            </button>
+        </template>
+    </category>
+    
+    ### FP informatica
+    
+    <category>
+        <pattern>Informàtica</pattern>
+        <template>
+            <image>http://todofp.es/.imaging/mte/todofp-theme/galeriaImagenesmmd/dam/todofp/comunes/familias/logo-connombre/color/IFC.png/jcr:content/IFC.png.png</image>
+            <b><formal><get name="nom"/></formal></b>, aqui tens els ensenyaments de FP relacionats amb informàtica:
+            <button>
+                <text>FPB - Títol Professional Bàsic en Informàtica d'Oficina</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/informatica-comunicaciones/informatica-oficina.html</url>
+            </button>
+            <button>
+                <text>FPB - Títol Professional Bàsic en Informàtica i Comunicacions</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/informatica-comunicaciones/informatica-comunicaciones.html</url>
+            </button>
+            <button>
+                <text>CFGM - Tècnic en Sistemes Microinformàtics i Xarxes</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/informatica-comunicaciones/sistemas-microniformaticos-redes.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Administració de Sistemes Informàtics en Xarxa</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/informatica-comunicaciones/admin-sist-informaticos-red.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Desenvolupament d'Aplicacions Multiplataforma</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/informatica-comunicaciones/des-aplicaciones-multiplataforma.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Desenvolupament d'Aplicacions Web</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/informatica-comunicaciones/des-aplicaciones-web.html</url>
+            </button>
+            <button>
+                <text>CICLES LOGSE</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/logse/informatica.html</url>
+            </button>
+    
+        </template>
+    </category>
+
+    ### FP administració
+    
+    <category>
+        <pattern>Administració</pattern>
+        <template>
+            <image>http://todofp.es/.imaging/mte/todofp-theme/galeriaImagenesmmd/dam/todofp/comunes/familias/logo-connombre/color/ADG.png/jcr:content/ADG.png.png</image>
+            <b><formal><get name="nom"/></formal></b>, aqui tens els ensenyaments de FP relacionats amb administració:
+            <button>
+                <text>FPB - Títol Professional Bàsic en Informàtica d'Oficina</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/administracion-gestion/informatica-oficina.html</url>
+            </button>
+            <button>
+                <text>FPB - Títol Professional Bàsic en Serveis Administratius</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/administracion-gestion/servicios-administrativos.html</url>
+            </button>
+            <button>
+                <text>CFGM - Tècnic en Gestió Administrativa</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/administracion-gestion/gestion-administrativa.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Administració i Finances</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/administracion-gestion/administracion-finanzas.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Assistència a la Direcció</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/administracion-gestion/asistencia-direccion.html</url>
+            </button>
+            <button>
+                <text>CICLES LOGSE</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/logse/administracion.html</url>
+            </button>            
+        </template>
+    </category>
+
+    ### FP SANITAT
+    
+    <category>
+        <pattern>Sanitat</pattern>
+        <template>
+            <image>http://todofp.es/.imaging/mte/todofp-theme/galeriaImagenesmmd/dam/todofp/comunes/familias/logo-connombre/color/SAN.png/jcr:content/SAN.png.png</image>
+            <b><formal><get name="nom"/></formal></b>, aqui tens els ensenyaments de FP relacionats amb sanitat:
+            <button>
+                <text>CFGM - Tècnic en Emergències Sanitàries</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/emergencias-sanitarias.html</url>
+            </button>
+            <button>
+                <text>CFGM - Tècnic en Farmàcia i Parafarmàcia</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/farmacia-parafarmacia.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Anatomia Patològica i Citodiagnòstic</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/anatomia-patologica-citodiagnostico.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Audiologia Protèsica</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/audiologia-protesica.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Documentació i Administració Sanitàries</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/documentacion-administracion-sanitarias.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Higiene Bucodental</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/higiente-bucodental.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Imatge per al Diagnòstic i Medicina Nuclear</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/imagen-diagnostico-medicina-nuclear.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Laboratori Clínic i Biomèdic</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/laboratorio-clinico-biomedico.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Ortopròtesis i Productes de Suport</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/ortoprotesis-productos-apoyo.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Pròtesis Dentals</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/protesis-dentales.html</url>
+            </button>
+            <button>
+                <text>CFGS - Tècnic Superior en Radioteràpia i Dosimetria</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/loe/sanidad/radioterapia-dosimetria.html</url>
+            </button>
+            <button>
+                <text>CICLES LOGSE</text>
+                <url>http://todofp.es/que-como-y-donde-estudiar/que-estudiar/familia/logse/sanidad.html</url>
+            </button>            
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <formal><get name="nom"/></formal>
+            , me sap greu no poder processar la teva sol·licitud 😔.
+            <break/>
+            He fet una recerca a GOOGLE amb el que m'has demanat, tal vegada tinguis més sort. Clica en l'enllaç:
+            <button>
+                <text><uppercase><star/></uppercase></text>
+                <url>https://www.google.com/search?q=<star/></url>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>adeu</pattern>
+        <template>
+            A reveure, <formal><get name="nom"/></formal>
+            , ha estat un plaer poder-te ajudar 🖐.
+            <break/>
+            <think><set name="nom">unknown</set></think>
+            <think><set name="salutacio">unknown</set></think>
+            <think><set name="topic"></set></think>
+        </template>
+    </category>
+
+</topic>
+
+
+</aiml>
+
